@@ -4,6 +4,7 @@ import { LuInbox, LuBoomBox } from "react-icons/lu";
 import { LiaUserFriendsSolid } from "react-icons/lia";
 import { FaRegBell } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Sidebar: React.FC = () => {
     const iconSize = 24;
@@ -11,12 +12,15 @@ const Sidebar: React.FC = () => {
     const menuItems = [
         {
             icon: <LuInbox size={iconSize} />,
+            route: "/drop",
         },
         {
             icon: <LuBoomBox size={iconSize} />,
+            route: "/play",
         },
         {
             icon: <LiaUserFriendsSolid size={iconSize} />,
+            route: "/friends",
         },
     ];
 
@@ -38,7 +42,8 @@ const Sidebar: React.FC = () => {
                         className="text-white"
                     />
                 </div>
-                <div
+                <Link
+                    to="/"
                     className="
                         hover:bg-gray-100
                         p-2
@@ -51,9 +56,10 @@ const Sidebar: React.FC = () => {
                     "
                 >
                     <HiSquares2X2 size={iconSize} />
-                </div>
+                </Link>
                 {menuItems.map((item, index) => (
-                    <div
+                    <Link
+                        to={item.route}
                         key={index}
                         className="
                             hover:bg-gray-100
@@ -68,7 +74,7 @@ const Sidebar: React.FC = () => {
                         "
                     >
                         {item.icon}
-                    </div>
+                    </Link>
                 ))}
             </div>
             <div className="flex flex-col space-y-6 items-center">

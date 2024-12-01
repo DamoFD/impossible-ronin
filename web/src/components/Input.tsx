@@ -1,25 +1,26 @@
 import { Input as ShadInput } from "@/components/ui/input";
 import { IconType } from 'react-icons';
 
-interface InputProps {
+interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
     LeftAdornment?: IconType;
     RightAdornment?: IconType;
 }
 
-const Input: React.FC<InputProps> = ({ LeftAdornment, RightAdornment }) => {
+const Input: React.FC<InputProps> = ({ LeftAdornment, RightAdornment, ...props }) => {
     return (
         <div className="relative">
             {LeftAdornment && (
                 <LeftAdornment
-                    className="absolute left-2 top-1/2 -translate-y-1/2"
+                    className="absolute text-gray-800 left-3 top-1/2 -translate-y-1/2"
                 />
             )}
             <ShadInput
-                className="bg-white rounded-full"
+                className="bg-white rounded-full px-8 text-gray-800 w-72 placeholder:text-gray-800"
+                {...props}
             />
             {RightAdornment && (
                 <RightAdornment
-                    className="absolute right-2 top-1/2 -translate-y-1/2"
+                    className="absolute text-brand-primary right-3 top-1/2 -translate-y-1/2"
                 />
             )}
         </div>
