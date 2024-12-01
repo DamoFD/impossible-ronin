@@ -1,4 +1,4 @@
-import { Input } from "@/components/ui/input";
+import Input from "./Input";
 
 const Header: React.FC = () => {
     return (
